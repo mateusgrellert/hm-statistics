@@ -1,0 +1,37 @@
+
+#include "TComStatistics.h"
+
+using namespace std;
+
+TComStatistics::TComStatistics() {
+
+}
+
+
+void TComStatistics::setEncPU(TComDataCU* pu, unsigned int partIdx){
+	int w,h,address;
+	pu->getPartitionIndexAndSize(partIdx,w,h,address);
+	stringstream sstr;
+	sstr << "PU " << w << "x" << h;
+
+	addOccurrence(sstr, w*h/(64*64));
+
+}
+
+void TComStatistics::addOccurrence(string item, double n){
+	vector<pair<string, double> >::iterator it;
+
+	for(it = occurrences.begin(); it != occurrences.end(); it++){
+        if (it->first == item){
+			it->second += n;
+			break;
+		}
+	}
+	if(it == occurences.end()){
+		occurences.push_back(make_pair(item, n));	
+	}
+}
+
+
+
+

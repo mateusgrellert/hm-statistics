@@ -1,0 +1,31 @@
+
+#ifndef TCOMSTATISTICS_H
+#define	TCOMSTATISTICS_H
+
+
+#define EN_STATISTICS 1
+
+#include <vector>
+#include <fstream>
+#include <sstream>
+
+using namespace std;
+
+
+class TComStatistics {
+
+public:
+
+	static vector<pair<string, double> > occurrences;
+	static ofstream statsFile;
+
+    TComStatistics();
+	static void addOccurrence(string, int);
+	static void setEncPU(TComDataCU*, unsigned int);
+	static void setCompPU(TComDataCU*, unsigned int);
+	static void setEncTU(TComDataCU*, int w, int h, bool isLuma);
+	static void setCompTU(TComDataCU*, int w, int h, bool isLuma);
+};
+
+#endif	/* TCOMSTATISTICS_H */
+
