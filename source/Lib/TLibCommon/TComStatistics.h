@@ -13,27 +13,31 @@
 
 using namespace std;
 
+typedef vector<pair<string, double> > stats_item;
 
 class TComStatistics {
 
 public:
 
-	static vector<pair<string, double> > occurrences;
-	static vector<pair<string, double> > bestChoices;
+	static stats_item occurrences;
+	static stats_item bestChoices;
 	static ofstream statsFile;
 	static ofstream bestChoicesFile;
         static int currentPOC;
         static int nCU;
+        static string inputPath;
         static bool startEncoding;
 
         TComStatistics();
 	static void addOccurrence(string, double);
 	static void addBestChoice(string, double);
+	static void setEncCU(TComDataCU*);
 	static void setEncPU(TComDataCU*, unsigned int);
 	static void setCompPU(TComDataCU*, int);
 	static void setEncTU(TComDataCU*, int w, int h, bool isLuma);
 	static void setCompTU(TComDataCU*, int w, int h, bool isLuma);
 	static void reportStatistics();
+        static void writeOnCsv(stats_item stats, ofstream &file);
         
         static void adjustDimensions(PartSize pSize, int& w, int& h, int pIdx);
 

@@ -250,7 +250,8 @@ Void TEncCu::encodeCU ( TComDataCU* pcCU )
   {
     setdQPFlag(true);
   }
-
+  
+ 
   // Encode CU data
   xEncodeCU( pcCU, 0, 0 );
 }

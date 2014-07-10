@@ -40,6 +40,7 @@
 #include <cstring>
 #include <string>
 #include "TLibCommon/TComRom.h"
+#include "TLibCommon/TComStatistics.h"
 #include "TAppEncCfg.h"
 
 static istream& operator>>(istream &, Level::Name &);
@@ -48,6 +49,7 @@ static istream& operator>>(istream &, Profile::Name &);
 
 #include "TAppCommon/program_options_lite.h"
 #include "TLibEncoder/TEncRateCtrl.h"
+#include "TLibCommon/TComStatistics.h"
 #ifdef WIN32
 #define strdup _strdup
 #endif
@@ -557,6 +559,10 @@ Bool TAppEncCfg::parseCfg( Int argc, Char* argv[] )
    * Set any derived parameters
    */
   /* convert std::string to c string for compatability */
+#if EN_STATISTICS
+  TComStatistics::inputPath = cfg_InputFile;
+#endif
+  
   m_pchInputFile = cfg_InputFile.empty() ? NULL : strdup(cfg_InputFile.c_str());
   m_pchBitstreamFile = cfg_BitstreamFile.empty() ? NULL : strdup(cfg_BitstreamFile.c_str());
   m_pchReconFile = cfg_ReconFile.empty() ? NULL : strdup(cfg_ReconFile.c_str());
