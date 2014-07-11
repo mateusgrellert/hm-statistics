@@ -1026,7 +1026,7 @@ Void TEncCu::xEncodeCU( TComDataCU* pcCU, UInt uiAbsPartIdx, UInt uiDepth )
   
  
 #if EN_STATISTICS
-  if( !pcCU->getSlice()->isIntra() )
+//  if( !pcCU->getSlice()->isIntra() )
     TComStatistics::setEncPU(pcCU,uiAbsPartIdx);
 #endif 
   
@@ -1236,7 +1236,12 @@ Void TEncCu::xCheckRDCostMerge2Nx2N( TComDataCU*& rpcBestCU, TComDataCU*& rpcTem
   {
     iteration = 2;
   }
+#if EN_STATISTICS 
+    unsigned int uiWidth      = rpcTempCU->getWidth ( 0 );
+    unsigned int uiHeight      = rpcTempCU->getWidth ( 0 );
 
+    TComStatistics::setCompPU(rpcTempCU, "PU Merge ",uiWidth, uiHeight);
+#endif
   for( UInt uiNoResidual = 0; uiNoResidual < iteration; ++uiNoResidual )
   {
     for( UInt uiMergeCand = 0; uiMergeCand < numValidMergeCand; ++uiMergeCand )

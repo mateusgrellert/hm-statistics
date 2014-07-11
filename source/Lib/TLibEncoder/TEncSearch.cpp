@@ -2435,6 +2435,12 @@ TEncSearch::estIntraPredQT( TComDataCU* pcCU,
     Int numModesForFullRD = g_aucIntraModeNumFast[ uiWidthBit ];
     
     Bool doFastSearch = (numModesForFullRD != numModesAvailable);
+    
+    
+#if EN_STATISTICS
+    TComStatistics::setCompPU(pcCU, "PU Intra ",uiWidth, uiHeight);
+#endif
+    
     if (doFastSearch)
     {
       assert(numModesForFullRD < numModesAvailable);
@@ -2977,6 +2983,11 @@ Void TEncSearch::xMergeEstimation( TComDataCU* pcCU, TComYuv* pcYuvOrg, Int iPUI
   pcCU->getPartIndexAndSize( iPUIdx, uiAbsPartIdx, iWidth, iHeight );
   UInt uiDepth = pcCU->getDepth( uiAbsPartIdx );
   PartSize partSize = pcCU->getPartitionSize( 0 );
+      
+#if EN_STATISTICS 
+    TComStatistics::setCompPU(pcCU, "PU Merge ",iWidth, iHeight);
+#endif
+  
   if ( pcCU->getSlice()->getPPS()->getLog2ParallelMergeLevelMinus2() && partSize != SIZE_2Nx2N && pcCU->getWidth( 0 ) <= 8 )
   {
     pcCU->setPartSizeSubParts( SIZE_2Nx2N, 0, uiDepth );
@@ -2995,6 +3006,8 @@ Void TEncSearch::xMergeEstimation( TComDataCU* pcCU, TComYuv* pcYuvOrg, Int iPUI
   ruiCost = MAX_UINT;
   for( UInt uiMergeCand = 0; uiMergeCand < numValidMergeCand; ++uiMergeCand )
   {
+
+    
     UInt uiCostCand = MAX_UINT;
     UInt uiBitsCand = 0;
     
@@ -3155,7 +3168,7 @@ Void TEncSearch::predInterSearch( TComDataCU* pcCU, TComYuv* pcOrgYuv, TComYuv*&
     pcCU->getPartIndexAndSize( iPartIdx, uiPartAddr, iRoiWidth, iRoiHeight );
 
 #if EN_STATISTICS
-    TComStatistics::setCompPU(pcCU,iPartIdx);
+    TComStatistics::setCompPU(pcCU, "PU Merge",iRoiWidth, iRoiHeight );
 #endif
     
 #if AMP_MRG

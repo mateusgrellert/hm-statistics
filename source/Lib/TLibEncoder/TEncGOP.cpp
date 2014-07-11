@@ -1555,7 +1555,14 @@ Void TEncGOP::compressGOP( Int iPOCLast, Int iNumPicRcvd, TComList<TComPic*>& rc
           m_pcSliceEncoder->encodeSlice(pcPic, pcSubstreamsOut);
           
 #if EN_STATISTICS
-      TComStatistics::reportStatistics();
+#if PRINT_INTRA
+    TComStatistics::reportStatistics();
+#else
+      if(pcSlice->isIntra())
+        TComStatistics::clearStats();
+      else
+        TComStatistics::reportStatistics();
+#endif
 #endif
           {
             // Construct the final bitstream by flushing and concatenating substreams.

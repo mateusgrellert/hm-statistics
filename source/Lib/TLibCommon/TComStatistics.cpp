@@ -19,21 +19,18 @@ TComStatistics::TComStatistics() {
 }
 
 
-void TComStatistics::setCompPU(TComDataCU* pu, int partIdx){
-    int w,h,x,y;
-    
+void TComStatistics::setCompPU(TComDataCU* pu, string mode, unsigned int w, unsigned int h){
+   
     startEncoding = false;
     nCU=0;
     
-    pu->getPartPosition(partIdx,x,y,w,h);
     currentPOC = pu->getPic()->getPOC();
     
     stringstream sstr;
     
-    if(pu->isIntra( partIdx ))
-        sstr << "Intra " << w << "x" << h;
-    else        
-        sstr << "Inter " << w << "x" << h;
+    
+    sstr << mode << " " << w << "x" << h;
+        
     addOccurrence(sstr.str(),(double) w*h/(64.0*64));
 
 }
@@ -149,7 +146,6 @@ void TComStatistics::reportStatistics(){
     }
     statsFile << endl;
 
-    occurrences.clear();
     
     bestChoicesFile << "Frame " << currentPOC << endl;
     for(it = bestChoices.begin(); it != bestChoices.end(); it++){
@@ -157,23 +153,12 @@ void TComStatistics::reportStatistics(){
     }
     bestChoicesFile << "END" << endl;
 
+    clearStats();
+}
+void TComStatistics::clearStats(){
     bestChoices.clear();
-    
+    occurrences.clear();
 }
-
-void TComStatistics::writeOnCsv(stats_item stats, ofstream &file){
-    stats_item::iterator it;
-
-    file << "Frame " << currentPOC << endl;
-    for(it = stats.begin(); it != stats.end(); it++){
-        file << it->first << "\t" << it->second << endl;
-    }
-    file << endl;
-
-    stats.clear();
-}
-    
-
 
 void TComStatistics::adjustDimensions(PartSize pSize, int& w, int& h, int pIdx){
     switch(pSize){

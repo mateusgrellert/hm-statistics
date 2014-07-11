@@ -4,6 +4,7 @@
 
 
 #define EN_STATISTICS 1
+#define PRINT_INTRA 0
 
 #include <vector>
 #include <fstream>
@@ -29,16 +30,21 @@ public:
         static bool startEncoding;
 
         TComStatistics();
-	static void addOccurrence(string, double);
+	
+        static void addOccurrence(string, double);
 	static void addBestChoice(string, double);
 	static void setEncCU(TComDataCU*);
-	static void setEncPU(TComDataCU*, unsigned int);
-	static void setCompPU(TComDataCU*, int);
+	
+        static void setEncPU(TComDataCU*, unsigned int);
+        static void setCompPU(TComDataCU*, string, unsigned int,unsigned int);
+
+        
 	static void setEncTU(TComDataCU*, int w, int h, bool isLuma);
 	static void setCompTU(TComDataCU*, int w, int h, bool isLuma);
 	static void reportStatistics();
         static void writeOnCsv(stats_item stats, ofstream &file);
-        
+        static void clearStats();
+
         static void adjustDimensions(PartSize pSize, int& w, int& h, int pIdx);
 
 };
