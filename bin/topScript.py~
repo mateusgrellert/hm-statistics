@@ -1,7 +1,7 @@
 from os import system
 from utilities import *
 
-qps = ['22','32']
+qps = ['22,32']
 videos = [l.split()[0] for l in open('video_sequences.inp').readlines()]
 frames = [l.split()[1].strip('\n') for l in open('video_sequences.inp').readlines()]
 
