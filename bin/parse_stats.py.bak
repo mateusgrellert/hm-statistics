@@ -1,0 +1,163 @@
+import numpy as np
+import pylab
+import matplotlib as mpl
+import matplotlib.pyplot as plt
+import matplotlib.cm as cmx
+from collections import OrderedDict
+from matplot_functions import *
+
+def getStrings(lines, N):
+	s = []
+	brk = False
+	idx = 0
+	for l in lines:
+		if 'x' in l:
+			brk = True
+			tok = l.split('\t')
+			if 'Intra' in tok[0]:
+				tok[0] = ' ' + tok[0]
+			if tok[0] not in s:
+				s.append(tok[0])
+		elif brk:
+			brk = False
+			idx += 1
+			if idx == N:
+				return s
+
+
+def getOccurencesPUWise(lines,ret,N):
+	brk = False
+	idx = 1
+	for l in lines:
+		if 'x' in l:
+			brk = True
+			tok = l.split('\t')
+			if 'Intra' in tok[0]:
+				tok[0] = ' ' + tok[0]
+			ret[tok[0]][idx] = float(tok[1])
+			ret[tok[0]][0] += float(tok[1])
+		elif brk:
+			idx += 1
+			brk = False
+			if idx == N+1:
+				return ret
+
+
+
+
+
+
+
+N=8 # number of frames
+
+fin = open('bestChoices.csv','r')
+inp_lines = fin.readlines()
+fin.close()
+
+allStrings = getStrings(inp_lines, N)
+finalDict = {}
+
+for strr in allStrings:
+	finalDict[strr] = [0]*(N+1)
+
+finalDict = getOccurencesPUWise(inp_lines,finalDict,N)
+ordDict = OrderedDict(sorted(finalDict.items(), key=lambda t: t[1][0], reverse=True))
+
+x = range(0,len(allStrings))
+
+frame_wise = []
+accum_occur = []
+
+#separates the accumulated stats from the frame-wise one
+for tupl in ordDict.values():
+	accum_occur.append(tupl[0])
+	frame_wise.append(tupl[1:])
+
+
+# Figure 1 ---------------------------------	
+figure = pylab.figure(figsize = (12, 6), dpi=100) 
+mycolors = makeColors('terrain',N)
+plt.rc('axes', color_cycle=mycolors)
+
+ax0 = figure.add_subplot(211)
+plotChart(ax0, 0, x, ordDict.keys(), 0, accum_occur, 0, "Accumulated Occurrence")
+adjustAxisInterval(x,accum_occur)
+
+ser_labels= []
+for i in range(0,N):
+	ser_labels.append('Frame '+ str(i))
+
+ax1 = figure.add_subplot(212)
+plotChart(ax1,ser_labels, x, ordDict.keys(), 0, frame_wise, 0, "Normalized Occurrence")
+adjustAxisInterval(x,frame_wise)
+
+plt.subplots_adjust(top=0.95, bottom=0.3, left=0.05, right=0.98)
+
+figure.autofmt_xdate(rotation='vertical', ha='center')
+figure.savefig("matplot_PU_1.png")
+plt.close(figure)
+
+# Figure 2 ---------------------------------	
+ordDict = OrderedDict(sorted(finalDict.items(), key=lambda t: t[0], reverse=True))
+
+frame_wise = []
+accum_occur = []
+
+#separates the accumulated stats from the frame-wise ones
+for tupl in ordDict.values():
+	accum_occur.append(tupl[0])
+	frame_wise.append(tupl[1:])
+
+figure = pylab.figure(figsize = (12, 6), dpi=80) 
+mycolors = makeColors('terrain',N)
+plt.rc('axes', color_cycle=mycolors)
+
+ax0 = figure.add_subplot(211)
+plotChart(ax0, 0, x, ordDict.keys(), 0, accum_occur, 0, "Accumulated Occurrence")
+adjustAxisInterval(x,accum_occur)
+
+ax1 = figure.add_subplot(212)
+plotChart(ax1, ser_labels, x, ordDict.keys(), 0, frame_wise, 0, "Normalized Occurrence")
+adjustAxisInterval(x,frame_wise)
+
+plt.subplots_adjust(top=0.95, bottom=0.3, left=0.05, right=0.98)
+
+figure.autofmt_xdate(rotation='vertical', ha='center')
+figure.savefig("matplot_PU_2.png")
+plt.close(figure)
+
+# Figure 3 ---------------------------------
+mode_vet = {'Intra':[0]*N, 'Inter':[0]*N, 'SKIP':[0]*N, 'Merge':[0]*N}
+for k,val in ordDict.items():
+	mode = k.split()[0]
+	for f in range(0, N):
+		mode_vet[mode][f] += val[f+1]
+
+x = range(0,4)
+figure = pylab.figure(figsize = (12, 6), dpi=100) 
+ax0 = figure.add_subplot(211)
+plotChart(ax0, ser_labels, x, mode_vet.keys(), 0, mode_vet.values(), 0, "Accumulated Occurrence")
+adjustAxisInterval(x,mode_vet.values())
+
+
+modes = ['Intra', 'Inter', 'SKIP', 'Merge']
+mode_vet = []
+idx = 0
+
+for k,val in ordDict.items():
+	mode = modes.index(k.split()[0])
+	for f in range(0, N):
+		try:
+			mode_vet[f][mode] += val[f+1]
+		except:
+			mode_vet.append([0]*4)
+			mode_vet[f][mode] = val[f+1]
+print mode_vet
+
+x = range(0,N)
+ax0 = figure.add_subplot(212)
+plotChart(ax0, modes, x, ser_labels, 0, mode_vet, 0, "Accumulated Occurrence")
+adjustAxisInterval(x,mode_vet)
+figure.savefig("matplot_PU_3.png")
+plt.close(figure)
+
