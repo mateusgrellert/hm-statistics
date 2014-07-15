@@ -27,7 +27,7 @@ for struct in structures:
 			system(final_line)
 			system('python getFrameDetails.py '+ path + '.txt')	
 			
-			system('python parseStats.py *bestChoices.csv '+str(int(nFrames)-1))
+			system('python parseStats.py *bestChoices.csv '+str(int(frames[video_cfgs.index(cfg)])-1))
 
 			moveFilesToDir(path)
 
