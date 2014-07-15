@@ -1,14 +1,12 @@
 import numpy as np
 import pylab
-import matplotlib as mpl
-import matplotlib.pyplot as plt
-import matplotlib.cm as cmx
+#import matplotlib as mpl
+#import matplotlib.pyplot as plt
+#import matplotlib.cm as cmx
+#from matplot_functions import *
 from collections import OrderedDict
-from matplot_functions import *
 from sys import argv
 from utilities import *
-
-
 
 
 N=int(argv[2]) # number of frames
@@ -29,13 +27,12 @@ for i in range(0,3):
 	for key, val in ordDict2.items():
 		detailDicts[i][key] = val[1:]
 
-mycolors = makeColors('terrain',N)
-plt.rc('axes', color_cycle=mycolors)
-
 printToCsv(accumDicts, video+"_accumulated.csv")
 printToCsv(detailDicts, video+"_frame_detailed.csv")
 printGOPToCsv(detailDicts, video+"_GOP_detailed.csv", GOP)
 
+#mycolors = makeColors('terrain',N)
+#plt.rc('axes', color_cycle=mycolors)
 #plotFigures(accumDicts, "accum", N) #accumulated plots
 #plotFigures(detailDicts, "detail", N) #frame-detailed plots
 

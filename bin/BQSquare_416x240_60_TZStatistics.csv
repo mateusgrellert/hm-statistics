@@ -1,0 +1,336 @@
+Frame 8
+64x64 TZS First Search 5 Rounds	9
+64x64 TZS Total Calls	90
+64x64 TZS Refinement Search 2 Rounds	4
+64x64 TZS First Search 4 Rounds	47
+32x32 TZS First Search 6 Rounds	41
+32x32 TZS Total Calls	843
+32x32 TZS Refinement Search 1 Rounds	36
+32x32 TZS Refinement Search 3 Rounds	27
+32x32 TZS First Search 3 Rounds	319
+32x32 TZS First Search 4 Rounds	372
+16x16 TZS First Search 6 Rounds	78
+16x16 TZS Total Calls	3018
+16x16 TZS Refinement Search 3 Rounds	44
+16x16 TZS Refinement Search 1 Rounds	127
+16x16 TZS First Search 4 Rounds	1257
+16x16 TZS First Search 5 Rounds	450
+8x8 TZS First Search 6 Rounds	108
+8x8 TZS Total Calls	7800
+8x8 TZS Refinement Search 1 Rounds	218
+8x8 TZS First Search 3 Rounds	3921
+8x8 TZS Refinement Search 3 Rounds	99
+8x8 TZS First Search 4 Rounds	2784
+8x8 TZS First Search 5 Rounds	944
+16x16 TZS First Search 3 Rounds	1210
+8x8 TZS Refinement Search 5 Rounds	12
+32x32 TZS First Search 5 Rounds	103
+8x8 TZS Refinement Search 2 Rounds	79
+8x8 TZS First Search 7 Rounds	43
+8x8 TZS Raster Search	24
+16x16 TZS Refinement Search 2 Rounds	49
+32x32 TZS Refinement Search 8 Rounds	1
+8x8 TZS Refinement Search 4 Rounds	7
+16x16 TZS Refinement Search 8 Rounds	3
+8x8 TZS Refinement Search 6 Rounds	7
+16x16 TZS Refinement Search 6 Rounds	6
+16x16 TZS First Search 7 Rounds	23
+16x16 TZS Raster Search	12
+16x16 TZS Refinement Search 4 Rounds	8
+64x64 TZS First Search 7 Rounds	3
+64x64 TZS Refinement Search 3 Rounds	4
+64x64 TZS Refinement Search 1 Rounds	2
+64x64 TZS First Search 6 Rounds	4
+64x64 TZS Refinement Search 4 Rounds	1
+32x32 TZS First Search 7 Rounds	8
+32x32 TZS Refinement Search 5 Rounds	6
+32x32 TZS Raster Search	2
+32x32 TZS Refinement Search 2 Rounds	7
+16x16 TZS Refinement Search 5 Rounds	5
+16x16 TZS Refinement Search 10 Rounds	2
+8x8 TZS Refinement Search 9 Rounds	1
+8x8 TZS Refinement Search 11 Rounds	1
+32x32 TZS Refinement Search 4 Rounds	3
+8x8 TZS Refinement Search 7 Rounds	4
+64x64 TZS First Search 3 Rounds	27
+32x32 TZS Refinement Search 7 Rounds	2
+16x16 TZS Refinement Search 7 Rounds	3
+END
+Frame 4
+64x64 TZS First Search 3 Rounds	95
+64x64 TZS Total Calls	180
+64x64 TZS First Search 5 Rounds	29
+32x32 TZS First Search 3 Rounds	543
+32x32 TZS Total Calls	1126
+32x32 TZS First Search 5 Rounds	145
+16x16 TZS First Search 3 Rounds	2262
+16x16 TZS Total Calls	4332
+16x16 TZS First Search 5 Rounds	524
+8x8 TZS First Search 3 Rounds	8637
+8x8 TZS Total Calls	15600
+8x8 TZS First Search 5 Rounds	1587
+8x8 TZS First Search 4 Rounds	5278
+16x16 TZS First Search 4 Rounds	1499
+32x32 TZS First Search 4 Rounds	426
+8x8 TZS Refinement Search 1 Rounds	216
+16x16 TZS Refinement Search 1 Rounds	73
+8x8 TZS Refinement Search 3 Rounds	76
+8x8 TZS First Search 6 Rounds	90
+8x8 TZS Refinement Search 2 Rounds	61
+16x16 TZS Refinement Search 2 Rounds	27
+64x64 TZS First Search 4 Rounds	56
+16x16 TZS First Search 6 Rounds	47
+16x16 TZS Refinement Search 3 Rounds	27
+32x32 TZS Refinement Search 1 Rounds	16
+32x32 TZS First Search 6 Rounds	12
+64x64 TZS Refinement Search 1 Rounds	2
+32x32 TZS Refinement Search 4 Rounds	1
+32x32 TZS Refinement Search 3 Rounds	10
+32x32 TZS Refinement Search 2 Rounds	14
+16x16 TZS Refinement Search 6 Rounds	6
+16x16 TZS Refinement Search 12 Rounds	1
+8x8 TZS Refinement Search 5 Rounds	11
+8x8 TZS Refinement Search 4 Rounds	4
+8x8 TZS First Search 7 Rounds	8
+8x8 TZS Raster Search	8
+16x16 TZS Refinement Search 9 Rounds	1
+16x16 TZS Refinement Search 8 Rounds	1
+8x8 TZS Refinement Search 9 Rounds	2
+8x8 TZS Refinement Search 6 Rounds	1
+16x16 TZS Refinement Search 4 Rounds	2
+16x16 TZS Refinement Search 5 Rounds	2
+16x16 TZS Refinement Search 7 Rounds	1
+8x8 TZS Refinement Search 8 Rounds	1
+64x64 TZS Refinement Search 2 Rounds	6
+END
+Frame 2
+64x64 TZS First Search 3 Rounds	183
+64x64 TZS Total Calls	270
+32x32 TZS First Search 3 Rounds	1098
+32x32 TZS Total Calls	1605
+32x32 TZS First Search 4 Rounds	362
+16x16 TZS First Search 3 Rounds	4214
+16x16 TZS Total Calls	6102
+8x8 TZS First Search 3 Rounds	16619
+8x8 TZS Total Calls	23400
+8x8 TZS First Search 4 Rounds	5039
+16x16 TZS First Search 4 Rounds	1360
+8x8 TZS First Search 5 Rounds	1689
+16x16 TZS First Search 5 Rounds	501
+16x16 TZS Refinement Search 2 Rounds	24
+8x8 TZS Refinement Search 1 Rounds	195
+8x8 TZS Refinement Search 3 Rounds	62
+64x64 TZS First Search 4 Rounds	63
+64x64 TZS First Search 5 Rounds	22
+32x32 TZS First Search 5 Rounds	139
+8x8 TZS Refinement Search 2 Rounds	56
+32x32 TZS Refinement Search 3 Rounds	4
+16x16 TZS Refinement Search 1 Rounds	70
+16x16 TZS Refinement Search 3 Rounds	21
+8x8 TZS First Search 6 Rounds	50
+16x16 TZS Refinement Search 4 Rounds	2
+16x16 TZS First Search 6 Rounds	26
+64x64 TZS Refinement Search 2 Rounds	1
+32x32 TZS Refinement Search 5 Rounds	2
+32x32 TZS Refinement Search 1 Rounds	11
+32x32 TZS Refinement Search 2 Rounds	7
+8x8 TZS First Search 7 Rounds	3
+8x8 TZS Raster Search	2
+8x8 TZS Refinement Search 7 Rounds	1
+8x8 TZS Refinement Search 5 Rounds	8
+16x16 TZS Refinement Search 6 Rounds	4
+16x16 TZS Refinement Search 8 Rounds	1
+8x8 TZS Refinement Search 6 Rounds	2
+8x8 TZS Refinement Search 9 Rounds	1
+8x8 TZS Refinement Search 8 Rounds	1
+16x16 TZS Refinement Search 5 Rounds	1
+32x32 TZS First Search 6 Rounds	6
+64x64 TZS Refinement Search 1 Rounds	2
+64x64 TZS First Search 6 Rounds	2
+64x64 TZS Refinement Search 3 Rounds	1
+16x16 TZS First Search 7 Rounds	1
+END
+Frame 1
+64x64 TZS First Search 3 Rounds	232
+64x64 TZS Total Calls	270
+64x64 TZS First Search 5 Rounds	6
+64x64 TZS First Search 4 Rounds	32
+32x32 TZS First Search 3 Rounds	1214
+32x32 TZS Total Calls	1413
+32x32 TZS First Search 5 Rounds	37
+16x16 TZS First Search 3 Rounds	5164
+16x16 TZS Total Calls	5850
+16x16 TZS First Search 5 Rounds	116
+16x16 TZS First Search 4 Rounds	565
+8x8 TZS First Search 3 Rounds	21170
+8x8 TZS Total Calls	23400
+8x8 TZS First Search 5 Rounds	319
+8x8 TZS First Search 4 Rounds	1887
+16x16 TZS Refinement Search 1 Rounds	10
+32x32 TZS First Search 4 Rounds	162
+8x8 TZS Refinement Search 1 Rounds	48
+8x8 TZS First Search 6 Rounds	22
+8x8 TZS Refinement Search 3 Rounds	25
+16x16 TZS Refinement Search 3 Rounds	5
+16x16 TZS First Search 7 Rounds	1
+16x16 TZS Raster Search	1
+16x16 TZS First Search 6 Rounds	4
+8x8 TZS First Search 7 Rounds	2
+8x8 TZS Raster Search	2
+16x16 TZS Refinement Search 2 Rounds	4
+8x8 TZS Refinement Search 2 Rounds	17
+32x32 TZS Refinement Search 1 Rounds	1
+END
+Frame 3
+64x64 TZS First Search 3 Rounds	278
+64x64 TZS Total Calls	360
+64x64 TZS First Search 4 Rounds	53
+64x64 TZS First Search 5 Rounds	27
+32x32 TZS First Search 3 Rounds	1483
+32x32 TZS Total Calls	1916
+32x32 TZS First Search 5 Rounds	140
+16x16 TZS First Search 3 Rounds	6305
+16x16 TZS Total Calls	7832
+16x16 TZS First Search 5 Rounds	493
+16x16 TZS First Search 4 Rounds	1011
+8x8 TZS First Search 3 Rounds	25964
+8x8 TZS Total Calls	31200
+8x8 TZS First Search 4 Rounds	3689
+8x8 TZS First Search 5 Rounds	1506
+32x32 TZS First Search 4 Rounds	277
+8x8 TZS Refinement Search 2 Rounds	42
+8x8 TZS Refinement Search 1 Rounds	182
+16x16 TZS Refinement Search 1 Rounds	55
+8x8 TZS Refinement Search 3 Rounds	40
+16x16 TZS First Search 6 Rounds	22
+16x16 TZS Refinement Search 3 Rounds	15
+8x8 TZS First Search 6 Rounds	38
+8x8 TZS Refinement Search 5 Rounds	6
+32x32 TZS First Search 6 Rounds	16
+32x32 TZS Refinement Search 1 Rounds	17
+32x32 TZS Refinement Search 2 Rounds	13
+16x16 TZS Refinement Search 2 Rounds	21
+64x64 TZS First Search 6 Rounds	2
+64x64 TZS Refinement Search 1 Rounds	1
+32x32 TZS Refinement Search 4 Rounds	1
+8x8 TZS Refinement Search 4 Rounds	4
+8x8 TZS First Search 7 Rounds	3
+8x8 TZS Raster Search	2
+8x8 TZS Refinement Search 7 Rounds	1
+16x16 TZS Refinement Search 5 Rounds	2
+16x16 TZS Refinement Search 7 Rounds	1
+16x16 TZS Refinement Search 6 Rounds	1
+8x8 TZS Refinement Search 6 Rounds	3
+32x32 TZS Refinement Search 3 Rounds	3
+16x16 TZS Refinement Search 4 Rounds	2
+16x16 TZS First Search 7 Rounds	1
+16x16 TZS Raster Search	1
+64x64 TZS Refinement Search 3 Rounds	1
+END
+Frame 6
+64x64 TZS First Search 3 Rounds	230
+64x64 TZS Total Calls	270
+32x32 TZS First Search 3 Rounds	1222
+32x32 TZS Total Calls	1509
+16x16 TZS First Search 3 Rounds	4938
+16x16 TZS Total Calls	6198
+8x8 TZS First Search 3 Rounds	19357
+8x8 TZS Total Calls	23400
+8x8 TZS First Search 5 Rounds	497
+8x8 TZS First Search 4 Rounds	3512
+16x16 TZS First Search 4 Rounds	1048
+32x32 TZS First Search 4 Rounds	236
+16x16 TZS First Search 5 Rounds	190
+8x8 TZS Refinement Search 2 Rounds	24
+8x8 TZS Refinement Search 1 Rounds	146
+8x8 TZS First Search 6 Rounds	30
+8x8 TZS Refinement Search 3 Rounds	48
+64x64 TZS First Search 4 Rounds	29
+16x16 TZS Refinement Search 1 Rounds	61
+32x32 TZS First Search 5 Rounds	50
+64x64 TZS First Search 5 Rounds	11
+32x32 TZS Refinement Search 2 Rounds	4
+32x32 TZS First Search 6 Rounds	1
+32x32 TZS Refinement Search 3 Rounds	3
+16x16 TZS First Search 6 Rounds	22
+16x16 TZS Refinement Search 3 Rounds	11
+16x16 TZS Refinement Search 4 Rounds	3
+16x16 TZS Refinement Search 2 Rounds	20
+8x8 TZS Refinement Search 5 Rounds	3
+8x8 TZS First Search 7 Rounds	4
+8x8 TZS Raster Search	4
+32x32 TZS Refinement Search 1 Rounds	7
+64x64 TZS Refinement Search 2 Rounds	2
+END
+Frame 5
+64x64 TZS First Search 3 Rounds	307
+64x64 TZS Total Calls	360
+64x64 TZS First Search 4 Rounds	37
+64x64 TZS First Search 5 Rounds	16
+32x32 TZS First Search 3 Rounds	1608
+32x32 TZS Total Calls	1900
+32x32 TZS First Search 5 Rounds	63
+16x16 TZS First Search 3 Rounds	6714
+16x16 TZS Total Calls	7800
+16x16 TZS First Search 5 Rounds	281
+8x8 TZS First Search 3 Rounds	27190
+8x8 TZS Total Calls	31200
+8x8 TZS First Search 5 Rounds	1070
+8x8 TZS First Search 4 Rounds	2890
+16x16 TZS First Search 4 Rounds	789
+8x8 TZS Refinement Search 2 Rounds	45
+32x32 TZS First Search 4 Rounds	222
+8x8 TZS Refinement Search 1 Rounds	112
+8x8 TZS First Search 6 Rounds	46
+8x8 TZS Refinement Search 3 Rounds	47
+16x16 TZS Refinement Search 1 Rounds	33
+16x16 TZS First Search 6 Rounds	15
+16x16 TZS Refinement Search 3 Rounds	23
+32x32 TZS Refinement Search 3 Rounds	14
+16x16 TZS Refinement Search 2 Rounds	10
+64x64 TZS Refinement Search 1 Rounds	3
+64x64 TZS Refinement Search 3 Rounds	1
+32x32 TZS First Search 6 Rounds	7
+32x32 TZS Refinement Search 1 Rounds	6
+32x32 TZS Refinement Search 2 Rounds	4
+8x8 TZS First Search 7 Rounds	4
+8x8 TZS Raster Search	4
+8x8 TZS Refinement Search 4 Rounds	3
+16x16 TZS First Search 7 Rounds	1
+16x16 TZS Raster Search	1
+8x8 TZS Refinement Search 7 Rounds	1
+16x16 TZS Refinement Search 4 Rounds	1
+8x8 TZS Refinement Search 5 Rounds	2
+8x8 TZS Refinement Search 6 Rounds	1
+64x64 TZS Refinement Search 2 Rounds	1
+END
+Frame 7
+64x64 TZS First Search 3 Rounds	255
+64x64 TZS Total Calls	270
+64x64 TZS First Search 4 Rounds	12
+32x32 TZS First Search 3 Rounds	1289
+32x32 TZS Total Calls	1389
+16x16 TZS First Search 3 Rounds	5490
+16x16 TZS Total Calls	5862
+8x8 TZS First Search 3 Rounds	22179
+8x8 TZS Total Calls	23400
+8x8 TZS First Search 4 Rounds	1005
+16x16 TZS First Search 4 Rounds	310
+32x32 TZS First Search 4 Rounds	86
+16x16 TZS First Search 5 Rounds	59
+16x16 TZS Refinement Search 1 Rounds	10
+8x8 TZS First Search 5 Rounds	204
+8x8 TZS Refinement Search 1 Rounds	55
+8x8 TZS Refinement Search 3 Rounds	17
+8x8 TZS First Search 6 Rounds	9
+64x64 TZS First Search 5 Rounds	3
+32x32 TZS First Search 5 Rounds	14
+32x32 TZS Refinement Search 3 Rounds	3
+8x8 TZS First Search 7 Rounds	3
+8x8 TZS Raster Search	3
+8x8 TZS Refinement Search 2 Rounds	13
+16x16 TZS Refinement Search 2 Rounds	5
+16x16 TZS First Search 6 Rounds	3
+16x16 TZS Refinement Search 4 Rounds	1
+8x8 TZS Refinement Search 6 Rounds	1
+END

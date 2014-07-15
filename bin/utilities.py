@@ -1,10 +1,10 @@
 import numpy as np
 import pylab
-import matplotlib as mpl
-import matplotlib.pyplot as plt
-import matplotlib.cm as cmx
+#import matplotlib as mpl
+#import matplotlib.pyplot as plt
+#import matplotlib.cm as cmx
+#from matplot_functions import *
 from collections import OrderedDict
-from matplot_functions import *
 from sys import argv
 from os import system
 from os import listdir
@@ -26,7 +26,7 @@ def getStrings(lines, text, N):
 			idx += 1
 			if idx == N:
 				return s
-
+	return s
 
 def getAllStats(lines, N):
 	allPUStrings = getStrings(lines, "PU", N)
@@ -78,9 +78,9 @@ def getAllStats(lines, N):
 
 		elif 'END' in l:
 			idx += 1
-			if idx == N+1:
+			if idx == N:
 				return [[accPu, accMode, accTu], [puDict, modeDict, tuDict]]
-
+	return [[accPu, accMode, accTu], [puDict, modeDict, tuDict]]
 
 
 def printToCsv(dicts, path):

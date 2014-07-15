@@ -4,12 +4,14 @@
 
 stats_item TComStatistics::occurrences;
 stats_item TComStatistics::bestChoices;
+stats_item TComStatistics::TZSearchStats;
 ofstream TComStatistics::statsFile;
 ofstream TComStatistics::bestChoicesFile;
+ofstream TComStatistics::TZStatisticsFile;
 int TComStatistics::currentPOC;
 int TComStatistics::nCU;
 string TComStatistics::inputPath;
-
+unsigned TComStatistics::TZSearchRounds;
 bool TComStatistics::startEncoding;
 
 using namespace std;
@@ -25,9 +27,9 @@ void TComStatistics::setCompPU(TComDataCU* pu, string mode, unsigned int w, unsi
     nCU=0;
     
     currentPOC = pu->getPic()->getPOC();
-    
+
     stringstream sstr;
-    
+        
     
     sstr << mode << " " << w << "x" << h;
         
@@ -130,6 +132,7 @@ void TComStatistics::reportStatistics(){
 
     string statsPath = tok2 + "_statistics.csv";
     string bestPath = tok2 + "_bestChoices.csv";
+    string tzsPath = tok2 + "_TZStatistics.csv";
 
     if(not(statsFile.is_open())){
         statsFile.open(statsPath.c_str(),ofstream::out);        
@@ -138,6 +141,11 @@ void TComStatistics::reportStatistics(){
     if(not(bestChoicesFile.is_open())){
         bestChoicesFile.open(bestPath.c_str(),ofstream::out);        
     }
+      
+    if(not(TZStatisticsFile.is_open())){
+        TZStatisticsFile.open(tzsPath.c_str(),ofstream::out);        
+    }
+       
     
         
     statsFile << "Frame " << currentPOC << endl;
@@ -153,11 +161,20 @@ void TComStatistics::reportStatistics(){
     }
     bestChoicesFile << "END" << endl;
 
+        
+    TZStatisticsFile << "Frame " << currentPOC << endl;
+    for(it = TZSearchStats.begin(); it != TZSearchStats.end(); it++){
+        TZStatisticsFile << it->first << "\t" << it->second << endl;
+    }
+    TZStatisticsFile << "END" << endl;
+    
     clearStats();
 }
 void TComStatistics::clearStats(){
     bestChoices.clear();
     occurrences.clear();
+    TZSearchStats.clear();
+
 }
 
 void TComStatistics::adjustDimensions(PartSize pSize, int& w, int& h, int pIdx){
@@ -183,5 +200,51 @@ void TComStatistics::adjustDimensions(PartSize pSize, int& w, int& h, int pIdx){
             break;
         default:
             break;
+    }
+}
+
+void TComStatistics::setTZStep(int w, int h, int step){
+            
+    stringstream sstr;
+    string mode;
+    int n_w = max(w,h);
+    int n_h = n_w;
+    switch(step){
+        case 0: // First Search
+            mode = "First Search";
+            break;
+        case 1: // Raster Search
+            mode = "Raster Search";
+            break;
+        case 2: // Refinement Search
+            mode = "Refinement Search";
+            break;
+        default:
+            mode = "Total Calls";
+            break;
+    }
+    if (step == 0 or step == 2)
+        sstr << n_w << "x" << n_h << " " << "TZS " << mode << " "  << TZSearchRounds << " Rounds";
+    else    
+        sstr << n_w << "x" << n_h << " " << "TZS " << mode;
+
+  //  addTZStatistics(sstr.str(),(double) ((w*h*1.0)/(64.0*64)));   
+    addTZStatistics(sstr.str(),(double) 1);   
+
+    TZSearchRounds = 0;
+}
+      
+void TComStatistics::addTZStatistics(string name, double n){
+        
+    vector<pair<string, double> >::iterator it;
+
+    for(it = TZSearchStats.begin(); it != TZSearchStats.end(); it++){
+        if (it->first == name){
+            it->second += n;
+            return;
+        }
+    }
+    if(it == TZSearchStats.end()){
+        TZSearchStats.push_back(make_pair(name, n));	
     }
 }

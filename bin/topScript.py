@@ -17,7 +17,7 @@ for arg in argv[1:]:
 for struct in structures:
 	struct_line = bin_line + ' -c ../cfg/' + struct
 	for cfg in video_cfgs:
-		video_line = struct_line + ' -c ../cfg/per-sequence/' + cfg
+		video_line = struct_line + ' -c ../cfg/per-sequence/' + cfg + ' --IntraPeriod=-1'
 		for qp in qps:
 			path = '_'.join([videos[video_cfgs.index(cfg)], struct.strip('.cfg'), qp])
 			

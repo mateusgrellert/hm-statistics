@@ -304,7 +304,7 @@ const Bool bRasterRefinementEnable  = 0;  /* enable either raster refinement or 
 const Bool bRasterRefinementDiamond = 0;  /* 1 = xTZ8PointDiamondSearch   0 = xTZ8PointSquareSearch */        \
 const Bool bStarRefinementEnable    = 1;  /* enable either star refinement or raster refinement */            \
 const Bool bStarRefinementDiamond   = 1;  /* 1 = xTZ8PointDiamondSearch   0 = xTZ8PointSquareSearch */        \
-const Bool bStarRefinementStop      = 0;                                                                      \
+const Bool bStarRefinementStop      = 1;                                                                      \
 const UInt uiStarRefinementRounds   = 2;  /* star refinement stop X rounds after best match (must be >=1) */  \
 
 
@@ -2984,10 +2984,7 @@ Void TEncSearch::xMergeEstimation( TComDataCU* pcCU, TComYuv* pcYuvOrg, Int iPUI
   UInt uiDepth = pcCU->getDepth( uiAbsPartIdx );
   PartSize partSize = pcCU->getPartitionSize( 0 );
       
-#if EN_STATISTICS 
-    TComStatistics::setCompPU(pcCU, "PU Merge ",iWidth, iHeight);
-#endif
-  
+ 
   if ( pcCU->getSlice()->getPPS()->getLog2ParallelMergeLevelMinus2() && partSize != SIZE_2Nx2N && pcCU->getWidth( 0 ) <= 8 )
   {
     pcCU->setPartSizeSubParts( SIZE_2Nx2N, 0, uiDepth );
@@ -3168,7 +3165,15 @@ Void TEncSearch::predInterSearch( TComDataCU* pcCU, TComYuv* pcOrgYuv, TComYuv*&
     pcCU->getPartIndexAndSize( iPartIdx, uiPartAddr, iRoiWidth, iRoiHeight );
 
 #if EN_STATISTICS
-    TComStatistics::setCompPU(pcCU, "PU Merge",iRoiWidth, iRoiHeight );
+    int max_d = max(iRoiWidth, iRoiHeight);
+    int min_d = min(iRoiWidth, iRoiHeight);
+    
+    if ( bUseMRG && pcCU->getWidth( 0 ) > 8 && iNumPart == 2 )
+        TComStatistics::setCompPU(pcCU, "PU Inter AMP Merge",iRoiWidth, iRoiHeight );
+    else if (min_d == max_d/4 or min_d == 3*max_d/4)
+        TComStatistics::setCompPU(pcCU, "PU Inter AMP",iRoiWidth, iRoiHeight );
+    else
+        TComStatistics::setCompPU(pcCU, "PU Inter SMP",iRoiWidth, iRoiHeight );
 #endif
     
 #if AMP_MRG
@@ -4161,6 +4166,9 @@ Void TEncSearch::xTZSearch( TComDataCU* pcCU, TComPattern* pcPatternKey, Pel* pi
   xTZSearchHelp( pcPatternKey, cStruct, rcMv.getHor(), rcMv.getVer(), 0, 0 );
   
   // test whether one of PRED_A, PRED_B, PRED_C MV is better start point than Median predictor
+  
+
+    
   if ( bTestOtherPredictedMV )
   {
     for ( UInt index = 0; index < 3; index++ )
@@ -4183,9 +4191,16 @@ Void TEncSearch::xTZSearch( TComDataCU* pcCU, TComPattern* pcPatternKey, Pel* pi
   Int  iStartX = cStruct.iBestX;
   Int  iStartY = cStruct.iBestY;
   
+#if EN_STATISTICS
+    TComStatistics::TZSearchRounds = 0;
+#endif
   // first search
   for ( iDist = 1; iDist <= (Int)uiSearchRange; iDist*=2 )
   {
+      
+#if EN_STATISTICS
+        TComStatistics::TZSearchRounds++;
+#endif
     if ( bFirstSearchDiamond == 1 )
     {
       xTZ8PointDiamondSearch ( pcPatternKey, cStruct, pcMvSrchRngLT, pcMvSrchRngRB, iStartX, iStartY, iDist );
@@ -4201,6 +4216,16 @@ Void TEncSearch::xTZSearch( TComDataCU* pcCU, TComPattern* pcPatternKey, Pel* pi
     }
   }
   
+#if EN_STATISTICS
+    int pu_w = pcPatternKey->getROIYWidth();
+    int pu_h = pcPatternKey->getROIYHeight();
+    TComStatistics::setTZStep(pu_w,pu_h, 0);
+    TComStatistics::setTZStep(pu_w,pu_h, -1);
+
+#endif
+    
+    
+    
   // test whether zero Mv is a better start point than Median predictor
   if ( bTestZeroVectorStart && ((cStruct.iBestX != 0) || (cStruct.iBestY != 0)) )
   {
@@ -4233,17 +4258,29 @@ Void TEncSearch::xTZSearch( TComDataCU* pcCU, TComPattern* pcPatternKey, Pel* pi
     for ( iStartY = iSrchRngVerTop; iStartY <= iSrchRngVerBottom; iStartY += iRaster )
     {
       for ( iStartX = iSrchRngHorLeft; iStartX <= iSrchRngHorRight; iStartX += iRaster )
-      {
+      {   
         xTZSearchHelp( pcPatternKey, cStruct, iStartX, iStartY, 0, iRaster );
       }
     }
+   
+#if EN_STATISTICS
+    TComStatistics::setTZStep(pu_w,pu_h, 1);
+#endif
   }
   
+#if EN_STATISTICS
+        TComStatistics::TZSearchRounds = 0;
+#endif
   // raster refinement
   if ( bRasterRefinementEnable && cStruct.uiBestDistance > 0 )
   {
     while ( cStruct.uiBestDistance > 0 )
     {
+        
+        
+#if EN_STATISTICS
+        TComStatistics::TZSearchRounds++;
+#endif
       iStartX = cStruct.iBestX;
       iStartY = cStruct.iBestY;
       if ( cStruct.uiBestDistance > 1 )
@@ -4282,6 +4319,12 @@ Void TEncSearch::xTZSearch( TComDataCU* pcCU, TComPattern* pcPatternKey, Pel* pi
       cStruct.ucPointNr = 0;
       for ( iDist = 1; iDist < (Int)uiSearchRange + 1; iDist*=2 )
       {
+          
+#if EN_STATISTICS
+        TComStatistics::TZSearchRounds++;
+#endif          
+
+        
         if ( bStarRefinementDiamond == 1 )
         {
           xTZ8PointDiamondSearch ( pcPatternKey, cStruct, pcMvSrchRngLT, pcMvSrchRngRB, iStartX, iStartY, iDist );
@@ -4306,8 +4349,14 @@ Void TEncSearch::xTZSearch( TComDataCU* pcCU, TComPattern* pcPatternKey, Pel* pi
         }
       }
     }
+    
+#if EN_STATISTICS
+    TComStatistics::setTZStep(pu_w,pu_h, 2);
+#endif
   }
-  
+ 
+
+        
   // write out best match
   rcMv.set( cStruct.iBestX, cStruct.iBestY );
   ruiSAD = cStruct.uiBestSad - m_pcRdCost->getCost( cStruct.iBestX, cStruct.iBestY );

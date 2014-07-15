@@ -22,12 +22,16 @@ public:
 
 	static stats_item occurrences;
 	static stats_item bestChoices;
+	static stats_item TZSearchStats;
+        
 	static ofstream statsFile;
 	static ofstream bestChoicesFile;
+	static ofstream TZStatisticsFile;
         static int currentPOC;
         static int nCU;
         static string inputPath;
         static bool startEncoding;
+        static unsigned TZSearchRounds;
 
         TComStatistics();
 	
@@ -41,7 +45,11 @@ public:
         
 	static void setEncTU(TComDataCU*, int w, int h, bool isLuma);
 	static void setCompTU(TComDataCU*, int w, int h, bool isLuma);
-	static void reportStatistics();
+	
+        static void setTZStep(int w, int h, int step);
+        static void addTZStatistics(string name, double n);
+        
+        static void reportStatistics();
         static void writeOnCsv(stats_item stats, ofstream &file);
         static void clearStats();
 
