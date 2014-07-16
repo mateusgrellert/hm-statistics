@@ -1,3 +1,4 @@
+build/linux/lib/*/objects
 bin/TAppEncoderStatic
 bin/*yuv
 bin/*bin
