@@ -1,5 +1,6 @@
 bin/TAppEncoderStatic
 bin/*yuv
 bin/*bin
+lib/
 nbproject
 objects
