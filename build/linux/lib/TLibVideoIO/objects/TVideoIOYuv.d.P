@@ -1,17 +1,13 @@
-objects/TVideoIOYuv.d.o: \
- /home/grellert/hm-statistics/build/linux/lib/TLibVideoIO/../../../../source/Lib/TLibVideoIO/TVideoIOYuv.cpp \
- /home/grellert/hm-statistics/build/linux/lib/TLibVideoIO/../../../../source/Lib/TLibCommon/TComRom.h \
- /home/grellert/hm-statistics/build/linux/lib/TLibVideoIO/../../../../source/Lib/TLibCommon/CommonDef.h \
- /home/grellert/hm-statistics/build/linux/lib/TLibVideoIO/../../../../source/Lib/TLibCommon/TypeDef.h \
- /home/grellert/hm-statistics/build/linux/lib/TLibVideoIO/../../../../source/Lib/TLibVideoIO/TVideoIOYuv.h \
- /home/grellert/hm-statistics/build/linux/lib/TLibVideoIO/../../../../source/Lib/TLibCommon/CommonDef.h \
- /home/grellert/hm-statistics/build/linux/lib/TLibVideoIO/../../../../source/Lib/TLibCommon/TComPicYuv.h \
- /home/grellert/hm-statistics/build/linux/lib/TLibVideoIO/../../../../source/Lib/TLibCommon/TComRom.h
- /home/grellert/hm-statistics/build/linux/lib/TLibVideoIO/../../../../source/Lib/TLibVideoIO/TVideoIOYuv.cpp :
- /home/grellert/hm-statistics/build/linux/lib/TLibVideoIO/../../../../source/Lib/TLibCommon/TComRom.h :
- /home/grellert/hm-statistics/build/linux/lib/TLibVideoIO/../../../../source/Lib/TLibCommon/CommonDef.h :
- /home/grellert/hm-statistics/build/linux/lib/TLibVideoIO/../../../../source/Lib/TLibCommon/TypeDef.h :
- /home/grellert/hm-statistics/build/linux/lib/TLibVideoIO/../../../../source/Lib/TLibVideoIO/TVideoIOYuv.h :
- /home/grellert/hm-statistics/build/linux/lib/TLibVideoIO/../../../../source/Lib/TLibCommon/CommonDef.h :
- /home/grellert/hm-statistics/build/linux/lib/TLibVideoIO/../../../../source/Lib/TLibCommon/TComPicYuv.h :
- /home/grellert/hm-statistics/build/linux/lib/TLibVideoIO/../../../../source/Lib/TLibCommon/TComRom.h :
+./objects/TVideoIOYuv.d.o: \
+  /Users/grellert/hm-statistics/build/linux/lib/TLibVideoIO/../../../../source/Lib/TLibVideoIO/TVideoIOYuv.cpp \
+  /Users/grellert/hm-statistics/build/linux/lib/TLibVideoIO/../../../../source/Lib/TLibCommon/TComRom.h \
+  /Users/grellert/hm-statistics/build/linux/lib/TLibVideoIO/../../../../source/Lib/TLibCommon/CommonDef.h \
+  /Users/grellert/hm-statistics/build/linux/lib/TLibVideoIO/../../../../source/Lib/TLibCommon/TypeDef.h \
+  ../../../../source/Lib/TLibVideoIO/TVideoIOYuv.h \
+  /Users/grellert/hm-statistics/build/linux/lib/TLibVideoIO/../../../../source/Lib/TLibCommon/TComPicYuv.h
+  /Users/grellert/hm-statistics/build/linux/lib/TLibVideoIO/../../../../source/Lib/TLibVideoIO/TVideoIOYuv.cpp :
+  /Users/grellert/hm-statistics/build/linux/lib/TLibVideoIO/../../../../source/Lib/TLibCommon/TComRom.h :
+  /Users/grellert/hm-statistics/build/linux/lib/TLibVideoIO/../../../../source/Lib/TLibCommon/CommonDef.h :
+  /Users/grellert/hm-statistics/build/linux/lib/TLibVideoIO/../../../../source/Lib/TLibCommon/TypeDef.h :
+  ../../../../source/Lib/TLibVideoIO/TVideoIOYuv.h :
+  /Users/grellert/hm-statistics/build/linux/lib/TLibVideoIO/../../../../source/Lib/TLibCommon/TComPicYuv.h :

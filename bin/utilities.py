@@ -1,5 +1,5 @@
-import numpy as np
-import pylab
+#import numpy as np
+#import pylab
 #import matplotlib as mpl
 #import matplotlib.pyplot as plt
 #import matplotlib.cm as cmx
@@ -21,6 +21,8 @@ def getStrings(lines, text, N):
 			if tok[0] not in s:
 				if 'PU' in tok[0]:
 					tok[0] = tok[0].split("PU ")[1]
+				elif 'TZS' in tok[0]:
+					tok[0] = tok[0].split("TZS ")[1]
 				s.append(tok[0])
 		elif 'END' in l:
 			idx += 1
@@ -34,24 +36,35 @@ def getAllStats(lines, N):
 	accPu = {}
 
 	for strr in allPUStrings:
-		puDict[strr] = [0]*(N+1)		
-		accPu[strr] = 0
+		puDict[strr] = [0.0]*(N+1)		
+		accPu[strr] = 0.0
 
 	allTUStrings = getStrings(lines, "TU", N)
 	tuDict = {}
 	accTu = {}
 
 	for strr in allTUStrings:
-		tuDict[strr] = [0]*(N+1)		
-		accTu[strr] = 0
+		tuDict[strr] = [0.0]*(N+1)		
+		accTu[strr] = 0.0
 
-	allModes = ['Inter', 'Intra', 'SKIP', 'Merge']
+	allModes = ['Inter SMP', 'Inter AMP', 'Intra', 'SKIP', 'Merge SMP', 'Merge AMP']
 	modeDict = {}
 	accMode = {}
 	for strr in allModes:
-		modeDict[strr] = [0]*(N+1)		
-		accMode[strr] = 0
+		modeDict[strr] = [0.0]*(N+1)		
+		accMode[strr] = 0.0
 
+
+	allTZStrings = getStrings(lines, "TZS", N)	
+	tzsDict = {}
+	tzsRoundsDict = {}
+	accTzs = {}
+	for strr in allTZStrings:
+		if ('First' in strr) or ('Refinement' in strr):
+			tzsRoundsDict[strr] = [0.0]*(N+1)
+			strr = " ".join(strr.split()[:-1])
+		tzsDict[strr] = [0.0]*(N+1)	
+		accTzs[strr] = 0.0
 
 
 	idx = 1 # 0 is for the accumulated results
@@ -61,26 +74,44 @@ def getAllStats(lines, N):
 		if 'PU' in l:
 			tok = l.split('\t')
 			tok[0] = tok[0].split("PU ")[1]
-			puDict[tok[0]][idx] = float(tok[1])
+			puDict[tok[0]][idx] += float(tok[1])
 			puDict[tok[0]][0] += float(tok[1])
 			accPu[tok[0]] += float(tok[1])
 			
-			tok2 = tok[0].split()			
-			modeDict[tok2[0]][idx] += float(tok[1])
-			modeDict[tok2[0]][0] += float(tok[1])
-			accMode[tok2[0]] += float(tok[1])
+			tok2 = tok[0].split()
+			mode = tok2[0]
+			
+			if ('AMP' in tok2) or ('SMP' in tok2):
+				mode += " " + tok2[1]
+
+			modeDict[mode][idx] += float(tok[1])
+			modeDict[mode][0] += float(tok[1])
+			accMode[mode] += float(tok[1])
 
 		elif 'TU' in l:
 			tok = l.split('\t')
-			tuDict[tok[0]][idx] = float(tok[1])
+			tuDict[tok[0]][idx] += float(tok[1])
 			tuDict[tok[0]][0] += float(tok[1])
 			accTu[tok[0]] += float(tok[1])
 
+		elif 'TZS' in l:
+			tok = l.split('\t')
+			tok[0] = tok[0].split("TZS ")[1]
+
+			if ('First' in tok[0]) or ('Refinement' in tok[0]):
+				tzsRoundsDict[tok[0]][idx] += float(tok[1])
+				tok[0] = " ".join(tok[0].split()[:-1])
+
+			tzsDict[tok[0]][idx] += float(tok[1])
+			tzsDict[tok[0]][0] += float(tok[1])
+			accTzs[tok[0]] += float(tok[1])
+
+
 		elif 'END' in l:
 			idx += 1
-			if idx == N:
-				return [[accPu, accMode, accTu], [puDict, modeDict, tuDict]]
-	return [[accPu, accMode, accTu], [puDict, modeDict, tuDict]]
+			if idx == N+1:
+				return  [[accPu, accMode, accTu, accTzs], [puDict, modeDict, tuDict, tzsDict]]
+	return [[accPu, accMode, accTu, accTzs], [puDict, modeDict, tuDict, tzsDict]]
 
 
 def printToCsv(dicts, path):

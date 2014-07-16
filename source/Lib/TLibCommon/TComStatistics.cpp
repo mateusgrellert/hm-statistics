@@ -76,6 +76,9 @@ void TComStatistics::setEncPU(TComDataCU* pu, unsigned int partIdx){
     h = pu->getHeight(uiSubPartIdx);
     adjustDimensions (ePartSize, w,h,uiPartIdx);
     sstr << "PU ";
+        
+    int max_d = max(w, h);
+    int min_d = min(w, h);
     
         if(pu->getIPCMFlag(partIdx))
             sstr << "PCM " << w << "x" << h;
@@ -83,12 +86,22 @@ void TComStatistics::setEncPU(TComDataCU* pu, unsigned int partIdx){
             sstr << "Intra " << w << "x" << h;
         else if (pu->isSkipped( partIdx))
             sstr << "SKIP " << w << "x" << h;
-        else if ( pu->getMergeFlag( uiSubPartIdx ) )
-            sstr << "Merge " << w << "x" << h;
-        else
-            sstr << "Inter " << w << "x" << h;
+        else{
 
-    
+            if ( pu->getMergeFlag( uiSubPartIdx ) )
+                sstr << "Merge " ;
+            else
+                sstr << "Inter ";
+                    
+            if (min_d == max_d/4 or min_d == 3*max_d/4)
+                sstr << "AMP " << w << "x" << h;
+            else
+                sstr << "SMP " << w << "x" << h;
+
+        }
+
+
+
         addBestChoice(sstr.str(),(double) w*h/(64*64));
     
   }
@@ -132,7 +145,6 @@ void TComStatistics::reportStatistics(){
 
     string statsPath = tok2 + "_statistics.csv";
     string bestPath = tok2 + "_bestChoices.csv";
-    string tzsPath = tok2 + "_TZStatistics.csv";
 
     if(not(statsFile.is_open())){
         statsFile.open(statsPath.c_str(),ofstream::out);        
@@ -141,10 +153,7 @@ void TComStatistics::reportStatistics(){
     if(not(bestChoicesFile.is_open())){
         bestChoicesFile.open(bestPath.c_str(),ofstream::out);        
     }
-      
-    if(not(TZStatisticsFile.is_open())){
-        TZStatisticsFile.open(tzsPath.c_str(),ofstream::out);        
-    }
+
        
     
         
@@ -152,7 +161,7 @@ void TComStatistics::reportStatistics(){
     for(it = occurrences.begin(); it != occurrences.end(); it++){
         statsFile << it->first << "\t" << it->second << endl;
     }
-    statsFile << endl;
+    statsFile << "END" << endl;
 
     
     bestChoicesFile << "Frame " << currentPOC << endl;
@@ -160,20 +169,12 @@ void TComStatistics::reportStatistics(){
         bestChoicesFile << it->first << "\t" << it->second << endl;
     }
     bestChoicesFile << "END" << endl;
-
-        
-    TZStatisticsFile << "Frame " << currentPOC << endl;
-    for(it = TZSearchStats.begin(); it != TZSearchStats.end(); it++){
-        TZStatisticsFile << it->first << "\t" << it->second << endl;
-    }
-    TZStatisticsFile << "END" << endl;
     
     clearStats();
 }
 void TComStatistics::clearStats(){
     bestChoices.clear();
     occurrences.clear();
-    TZSearchStats.clear();
 
 }
 
@@ -224,12 +225,12 @@ void TComStatistics::setTZStep(int w, int h, int step){
             break;
     }
     if (step == 0 or step == 2)
-        sstr << n_w << "x" << n_h << " " << "TZS " << mode << " "  << TZSearchRounds << " Rounds";
+        sstr << "TZS " << mode << " " << n_w << "x" << n_h << " "  << TZSearchRounds ;
     else    
-        sstr << n_w << "x" << n_h << " " << "TZS " << mode;
+        sstr << "TZS " << mode << " " << n_w << "x" << n_h ;
 
   //  addTZStatistics(sstr.str(),(double) ((w*h*1.0)/(64.0*64)));   
-    addTZStatistics(sstr.str(),(double) 1);   
+    addOccurrence(sstr.str(),(double) 1);   
 
     TZSearchRounds = 0;
 }
