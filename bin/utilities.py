@@ -62,7 +62,8 @@ def getAllStats(lines, N):
 	for strr in allTZStrings:
 		if ('First' in strr) or ('Refinement' in strr):
 			tzsRoundsDict[strr] = [0.0]*(N+1)
-			strr = " ".join(strr.split()[:-1])
+
+		strr = " ".join(strr.split()[0:2])
 		tzsDict[strr] = [0.0]*(N+1)	
 		accTzs[strr] = 0.0
 
@@ -100,7 +101,8 @@ def getAllStats(lines, N):
 
 			if ('First' in tok[0]) or ('Refinement' in tok[0]):
 				tzsRoundsDict[tok[0]][idx] += float(tok[1])
-				tok[0] = " ".join(tok[0].split()[:-1])
+
+			tok[0] = " ".join(tok[0].split()[0:2])
 
 			tzsDict[tok[0]][idx] += float(tok[1])
 			tzsDict[tok[0]][0] += float(tok[1])
@@ -118,7 +120,10 @@ def printToCsv(dicts, path):
 	f = open(path, 'w')
 	for d in dicts:
 		for key, val in d.items():
-			print >> f, key, "\t",
+			if 'x' in key:
+				print >> f, (" ".join(key.split()[:-1])+"\t"+key.split()[-1]),  "\t",
+			else:
+				print >> f, key, "\t",
 			if not isinstance(val, float):
 				for v in val:
 					print >> f, v, "\t",
@@ -134,7 +139,10 @@ def printGOPToCsv(dicts, path, GOP=8):
 			if len(val) < GOP:
 				GOP = len(val)
 				
-			print >> f, key, "\t",
+			if 'x' in key:
+				print >> f, (" ".join(key.split()[:-1])+"\t"+key.split()[-1]),  "\t",
+			else:
+				print >> f, key, "\t",
 			acum = 0.0
 			for i in range (0,len(val)):
 				if i % (GOP-1) == 0 and i != 0:

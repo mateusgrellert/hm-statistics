@@ -1,13 +1,15 @@
-./objects/NALread.r.o: \
-  /Users/grellert/hm-statistics/build/linux/lib/TLibDecoder/../../../../source/Lib/TLibDecoder/NALread.cpp \
-  ../../../../source/Lib/TLibDecoder/NALread.h \
-  /Users/grellert/hm-statistics/build/linux/lib/TLibDecoder/../../../../source/Lib/TLibCommon/TypeDef.h \
-  /Users/grellert/hm-statistics/build/linux/lib/TLibDecoder/../../../../source/Lib/TLibCommon/TComBitStream.h \
-  /Users/grellert/hm-statistics/build/linux/lib/TLibDecoder/../../../../source/Lib/TLibCommon/CommonDef.h \
-  /Users/grellert/hm-statistics/build/linux/lib/TLibDecoder/../../../../source/Lib/TLibCommon/NAL.h
-  /Users/grellert/hm-statistics/build/linux/lib/TLibDecoder/../../../../source/Lib/TLibDecoder/NALread.cpp :
-  ../../../../source/Lib/TLibDecoder/NALread.h :
-  /Users/grellert/hm-statistics/build/linux/lib/TLibDecoder/../../../../source/Lib/TLibCommon/TypeDef.h :
-  /Users/grellert/hm-statistics/build/linux/lib/TLibDecoder/../../../../source/Lib/TLibCommon/TComBitStream.h :
-  /Users/grellert/hm-statistics/build/linux/lib/TLibDecoder/../../../../source/Lib/TLibCommon/CommonDef.h :
-  /Users/grellert/hm-statistics/build/linux/lib/TLibDecoder/../../../../source/Lib/TLibCommon/NAL.h :
+objects/NALread.r.o: \
+ /home/grellert/hm-statistics/build/linux/lib/TLibDecoder/../../../../source/Lib/TLibDecoder/NALread.cpp \
+ /home/grellert/hm-statistics/build/linux/lib/TLibDecoder/../../../../source/Lib/TLibDecoder/NALread.h \
+ /home/grellert/hm-statistics/build/linux/lib/TLibDecoder/../../../../source/Lib/TLibCommon/TypeDef.h \
+ /home/grellert/hm-statistics/build/linux/lib/TLibDecoder/../../../../source/Lib/TLibCommon/TComBitStream.h \
+ /home/grellert/hm-statistics/build/linux/lib/TLibDecoder/../../../../source/Lib/TLibCommon/CommonDef.h \
+ /home/grellert/hm-statistics/build/linux/lib/TLibDecoder/../../../../source/Lib/TLibCommon/TypeDef.h \
+ /home/grellert/hm-statistics/build/linux/lib/TLibDecoder/../../../../source/Lib/TLibCommon/NAL.h
+ /home/grellert/hm-statistics/build/linux/lib/TLibDecoder/../../../../source/Lib/TLibDecoder/NALread.cpp :
+ /home/grellert/hm-statistics/build/linux/lib/TLibDecoder/../../../../source/Lib/TLibDecoder/NALread.h :
+ /home/grellert/hm-statistics/build/linux/lib/TLibDecoder/../../../../source/Lib/TLibCommon/TypeDef.h :
+ /home/grellert/hm-statistics/build/linux/lib/TLibDecoder/../../../../source/Lib/TLibCommon/TComBitStream.h :
+ /home/grellert/hm-statistics/build/linux/lib/TLibDecoder/../../../../source/Lib/TLibCommon/CommonDef.h :
+ /home/grellert/hm-statistics/build/linux/lib/TLibDecoder/../../../../source/Lib/TLibCommon/TypeDef.h :
+ /home/grellert/hm-statistics/build/linux/lib/TLibDecoder/../../../../source/Lib/TLibCommon/NAL.h :

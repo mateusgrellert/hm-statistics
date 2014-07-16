@@ -22,15 +22,14 @@ TComStatistics::TComStatistics() {
 
 
 void TComStatistics::setCompPU(TComDataCU* pu, string mode, unsigned int w, unsigned int h){
-   
+
     startEncoding = false;
     nCU=0;
     
     currentPOC = pu->getPic()->getPOC();
 
     stringstream sstr;
-        
-    
+            
     sstr << mode << " " << w << "x" << h;
         
     addOccurrence(sstr.str(),(double) w*h/(64.0*64));
@@ -204,7 +203,7 @@ void TComStatistics::adjustDimensions(PartSize pSize, int& w, int& h, int pIdx){
     }
 }
 
-void TComStatistics::setTZStep(int w, int h, int step){
+void TComStatistics::setTZStep(int w, int h, int step, bool taken){
             
     stringstream sstr;
     string mode;
@@ -224,28 +223,20 @@ void TComStatistics::setTZStep(int w, int h, int step){
             mode = "Total Calls";
             break;
     }
+
+ 
+            
     if (step == 0 or step == 2)
-        sstr << "TZS " << mode << " " << n_w << "x" << n_h << " "  << TZSearchRounds ;
+        sstr << "TZS " <<  mode << " " << n_w << "x" << n_h << " "  << TZSearchRounds ;
     else    
-        sstr << "TZS " << mode << " " << n_w << "x" << n_h ;
+        sstr << "TZS " <<  mode << " " << n_w << "x" << n_h ;
 
   //  addTZStatistics(sstr.str(),(double) ((w*h*1.0)/(64.0*64)));   
-    addOccurrence(sstr.str(),(double) 1);   
+    if (taken)
+        addOccurrence(sstr.str(),(double) 1);   
+    else
+        addOccurrence(sstr.str(),(double) 0);   
 
     TZSearchRounds = 0;
 }
       
-void TComStatistics::addTZStatistics(string name, double n){
-        
-    vector<pair<string, double> >::iterator it;
-
-    for(it = TZSearchStats.begin(); it != TZSearchStats.end(); it++){
-        if (it->first == name){
-            it->second += n;
-            return;
-        }
-    }
-    if(it == TZSearchStats.end()){
-        TZSearchStats.push_back(make_pair(name, n));	
-    }
-}

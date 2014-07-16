@@ -4219,9 +4219,7 @@ Void TEncSearch::xTZSearch( TComDataCU* pcCU, TComPattern* pcPatternKey, Pel* pi
 #if EN_STATISTICS
     int pu_w = pcPatternKey->getROIYWidth();
     int pu_h = pcPatternKey->getROIYHeight();
-    TComStatistics::setTZStep(pu_w,pu_h, 0);
-    TComStatistics::setTZStep(pu_w,pu_h, -1);
-
+    TComStatistics::setTZStep(pu_w,pu_h, 0, true);
 #endif
     
     
@@ -4264,7 +4262,13 @@ Void TEncSearch::xTZSearch( TComDataCU* pcCU, TComPattern* pcPatternKey, Pel* pi
     }
    
 #if EN_STATISTICS
-    TComStatistics::setTZStep(pu_w,pu_h, 1);
+    TComStatistics::setTZStep(pu_w,pu_h, 1, true);
+#endif
+  }
+  else{
+      
+#if EN_STATISTICS
+    TComStatistics::setTZStep(pu_w,pu_h, 1, false);
 #endif
   }
   
@@ -4306,6 +4310,15 @@ Void TEncSearch::xTZSearch( TComDataCU* pcCU, TComPattern* pcPatternKey, Pel* pi
         }
       }
     }
+    
+#if EN_STATISTICS
+    TComStatistics::setTZStep(pu_w,pu_h, 2, true);
+#endif
+  }     
+  else if(bRasterRefinementEnable){
+#if EN_STATISTICS
+    TComStatistics::setTZStep(pu_w,pu_h, 2, false);
+#endif
   }
   
   // start refinement
@@ -4351,7 +4364,12 @@ Void TEncSearch::xTZSearch( TComDataCU* pcCU, TComPattern* pcPatternKey, Pel* pi
     }
     
 #if EN_STATISTICS
-    TComStatistics::setTZStep(pu_w,pu_h, 2);
+    TComStatistics::setTZStep(pu_w,pu_h, 2, true);
+#endif
+  }
+  else if(bStarRefinementEnable){
+#if EN_STATISTICS
+    TComStatistics::setTZStep(pu_w,pu_h, 2, false);
 #endif
   }
  

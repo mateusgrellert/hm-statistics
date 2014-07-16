@@ -1,7 +1,7 @@
 from os import system
 from utilities import *
 
-qps = ['22', 32']
+qps = ['22', '32']
 videos = [l.split()[0] for l in open('video_sequences.inp').readlines()]
 frames = [l.split()[1].strip('\n') for l in open('video_sequences.inp').readlines()]
 
@@ -28,6 +28,7 @@ for struct in structures:
 			system('python getFrameDetails.py '+ path + '.txt')	
 			
 			system('python parseStats.py *bestChoices.csv '+str(int(frames[video_cfgs.index(cfg)])-1))
+			system('python parseStats.py *statistics.csv '+str(int(frames[video_cfgs.index(cfg)])-1))
 
 			moveFilesToDir(path)
 

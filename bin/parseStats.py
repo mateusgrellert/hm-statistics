@@ -21,12 +21,14 @@ fin.close()
 [accumDicts, detailDicts] =  getAllStats(inp_lines,N)
 
 for i in range(0,len(accumDicts)):
-	ordDict = OrderedDict(sorted(accumDicts[i].items(), key=lambda t: t[1], reverse=True))
-	accumDicts[i] = ordDict
+	if ext == 'bestChoices': # sort accum-wise
+		accumDicts[i] = OrderedDict(sorted(accumDicts[i].items(), key=lambda t: t[1], reverse=True))
+		detailDicts[i] = OrderedDict(sorted(detailDicts[i].items(), key=lambda t: t[1][0], reverse=True))
+	else: # sort pu-wise
+		accumDicts[i] = OrderedDict(sorted(accumDicts[i].items(), key=lambda t: sum([int(x) for x in t[0].split()[-1].split('x') if x.isdigit()]) - len(t[0].split()[0]), reverse=True))
+		detailDicts[i] = OrderedDict(sorted(detailDicts[i].items(), key=lambda t: sum([int(x) for x in t[0].split()[-1].split('x') if x.isdigit()]) - len(t[0].split()[0]), reverse=True))
 
-	ordDict2 = OrderedDict(sorted(detailDicts[i].items(), key=lambda t: t[1][0], reverse=True))
-
-	for key, val in ordDict2.items():
+	for key, val in detailDicts[i].items():
 		detailDicts[i][key] = val[1:]
 
 printToCsv(accumDicts, video+'_'+ext+"_accumulated.csv")
