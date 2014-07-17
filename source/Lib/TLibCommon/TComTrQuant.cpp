@@ -39,6 +39,7 @@
 #include <math.h>
 #include <memory.h>
 #include "TComTrQuant.h"
+#include "TComStatistics.h"
 #include "TComPic.h"
 #include "ContextTables.h"
 
@@ -1248,6 +1249,14 @@ Void TComTrQuant::transformNxN( TComDataCU* pcCU,
   }
   else
   {
+      
+#if EN_STATISTICS
+      if(eTType == TEXT_LUMA)
+        TComStatistics::setCompPU(pcCU, "TU luma ", uiWidth, uiHeight );
+      else
+        TComStatistics::setCompPU(pcCU, "TU chroma ", uiWidth, uiHeight );
+#endif
+      
     xT(bitDepth, uiMode, pcResidual, uiStride, m_plTempCoeff, uiWidth, uiHeight );
   }
   xQuant( pcCU, m_plTempCoeff, rpcCoeff,

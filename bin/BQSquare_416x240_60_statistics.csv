@@ -1,4 +1,8 @@
 Frame 8
+TU luma  32x32	542.5
+TU chroma  16x16	204.375
+TU luma  16x16	703.375
+TU chroma  8x8	359.406
 PU Inter SMP 64x64	18
 TZS First Search 64x64 5	9
 TZS Raster Search 64x64	0
@@ -10,6 +14,8 @@ TZS First Search 64x64 4	47
 PU Inter AMP Merge 64x16	5.5
 PU Inter AMP Merge 64x48	16.5
 PU Intra  64x64	17
+TU luma  8x8	661.109
+TU chroma  4x4	549.688
 PU Inter SMP 32x32	22.75
 TZS First Search 32x32 6	41
 TZS Raster Search 32x32	2
@@ -23,6 +29,7 @@ TZS First Search 32x32 4	372
 PU Inter AMP 8x32	6
 PU Inter AMP 24x32	18
 PU Intra  32x32	15.5
+TU luma  4x4	440.328
 PU Inter SMP 16x16	24.375
 TZS First Search 16x16 6	78
 TZS Raster Search 16x16	12
@@ -95,6 +102,10 @@ TZS Refinement Search 32x32 7	2
 TZS Refinement Search 16x16 7	3
 END
 Frame 4
+TU luma  32x32	280.25
+TU chroma  16x16	126
+TU luma  16x16	389.25
+TU chroma  8x8	201.375
 PU Inter SMP 64x64	18
 TZS First Search 64x64 3	95
 TZS Raster Search 64x64	0
@@ -104,6 +115,8 @@ PU Inter SMP 32x64	18
 PU Inter SMP 64x32	18
 PU Inter AMP Merge 16x64	5
 PU Inter AMP Merge 48x64	15
+TU luma  8x8	362.234
+TU chroma  4x4	300.047
 PU Inter SMP 32x32	22.75
 TZS First Search 32x32 3	543
 TZS Raster Search 32x32	0
@@ -113,6 +126,7 @@ PU Inter SMP 16x32	22.75
 PU Inter SMP 32x16	22.75
 PU Inter AMP 8x32	1.75
 PU Inter AMP 24x32	5.25
+TU luma  4x4	234.367
 PU Inter SMP 16x16	24.375
 TZS First Search 16x16 3	2262
 TZS Raster Search 16x16	0
@@ -182,12 +196,18 @@ TZS Refinement Search 8x8 8	1
 TZS Refinement Search 64x64 2	6
 END
 Frame 2
+TU luma  32x32	228.5
+TU chroma  16x16	108.625
+TU luma  16x16	328.312
+TU chroma  8x8	167.469
 PU Inter SMP 64x64	18
 TZS First Search 64x64 3	183
 TZS Raster Search 64x64	0
 TZS Refinement Search 64x64 0	0
 PU Inter SMP 32x64	18
 PU Inter SMP 64x32	18
+TU luma  8x8	321.719
+TU chroma  4x4	265.625
 PU Inter SMP 32x32	22.75
 TZS First Search 32x32 3	1098
 TZS Raster Search 32x32	0
@@ -197,6 +217,7 @@ PU Inter SMP 32x16	22.75
 PU Inter AMP 8x32	1
 TZS First Search 32x32 4	362
 PU Inter AMP 24x32	3
+TU luma  4x4	207.852
 PU Inter SMP 16x16	24.375
 TZS First Search 16x16 3	4214
 TZS Raster Search 16x16	0
@@ -269,6 +290,10 @@ TZS Refinement Search 64x64 3	1
 TZS First Search 16x16 7	1
 END
 Frame 1
+TU luma  32x32	167
+TU chroma  16x16	83.5
+TU luma  16x16	265.5
+TU chroma  8x8	132.75
 PU Inter SMP 64x64	18
 TZS First Search 64x64 3	232
 TZS Raster Search 64x64	0
@@ -277,6 +302,8 @@ TZS First Search 64x64 5	6
 PU Inter SMP 32x64	18
 TZS First Search 64x64 4	32
 PU Inter SMP 64x32	18
+TU luma  8x8	289.016
+TU chroma  4x4	242.516
 PU Inter SMP 32x32	22.75
 TZS First Search 32x32 3	1214
 TZS Raster Search 32x32	0
@@ -284,6 +311,7 @@ TZS Refinement Search 32x32 0	0
 TZS First Search 32x32 5	37
 PU Inter SMP 16x32	22.75
 PU Inter SMP 32x16	22.75
+TU luma  4x4	196.016
 PU Inter SMP 16x16	24.375
 TZS First Search 16x16 3	5164
 TZS Raster Search 16x16	1
@@ -322,6 +350,10 @@ TZS Refinement Search 8x8 2	17
 TZS Refinement Search 32x32 1	1
 END
 Frame 3
+TU luma  32x32	170
+TU chroma  16x16	85
+TU luma  16x16	268.75
+TU chroma  8x8	134.375
 PU Inter SMP 64x64	18
 TZS First Search 64x64 3	278
 TZS Raster Search 64x64	0
@@ -330,6 +362,8 @@ TZS First Search 64x64 4	53
 TZS First Search 64x64 5	27
 PU Inter SMP 32x64	18
 PU Inter SMP 64x32	18
+TU luma  8x8	290.25
+TU chroma  4x4	243.25
 PU Inter SMP 32x32	22.75
 TZS First Search 32x32 3	1483
 TZS Raster Search 32x32	0
@@ -337,6 +371,7 @@ TZS Refinement Search 32x32 0	0
 TZS First Search 32x32 5	140
 PU Inter SMP 16x32	22.75
 PU Inter SMP 32x16	22.75
+TU luma  4x4	196.25
 PU Inter SMP 16x16	24.375
 TZS First Search 16x16 3	6305
 TZS Raster Search 16x16	1
@@ -398,18 +433,25 @@ PU Inter AMP 12x16	0.09375
 TZS Refinement Search 64x64 3	1
 END
 Frame 6
+TU luma  32x32	212
+TU chroma  16x16	101.375
+TU luma  16x16	313.688
+TU chroma  8x8	159.375
 PU Inter SMP 64x64	18
 TZS First Search 64x64 3	230
 TZS Raster Search 64x64	0
 TZS Refinement Search 64x64 0	0
 PU Inter SMP 32x64	18
 PU Inter SMP 64x32	18
+TU luma  8x8	319.969
+TU chroma  4x4	265.141
 PU Inter SMP 32x32	22.75
 TZS First Search 32x32 3	1222
 TZS Raster Search 32x32	0
 TZS Refinement Search 32x32 0	0
 PU Inter SMP 16x32	22.75
 PU Inter SMP 32x16	22.75
+TU luma  4x4	209.168
 PU Inter SMP 16x16	24.375
 TZS First Search 16x16 3	4938
 TZS Raster Search 16x16	0
@@ -473,6 +515,10 @@ PU Inter AMP Merge 64x16	0.5
 PU Inter AMP Merge 64x48	1.5
 END
 Frame 5
+TU luma  32x32	175.5
+TU chroma  16x16	87.75
+TU luma  16x16	276.125
+TU chroma  8x8	138.062
 PU Inter SMP 64x64	18
 TZS First Search 64x64 3	307
 TZS Raster Search 64x64	0
@@ -485,6 +531,8 @@ PU Inter AMP Merge 64x16	0.5
 PU Inter AMP Merge 64x48	1.5
 PU Inter AMP Merge 16x64	2
 PU Inter AMP Merge 48x64	6
+TU luma  8x8	291.688
+TU chroma  4x4	244.938
 PU Inter SMP 32x32	22.75
 TZS First Search 32x32 3	1608
 TZS Raster Search 32x32	0
@@ -492,6 +540,7 @@ TZS Refinement Search 32x32 0	0
 TZS First Search 32x32 5	63
 PU Inter SMP 16x32	22.75
 PU Inter SMP 32x16	22.75
+TU luma  4x4	198.188
 PU Inter SMP 16x16	24.375
 TZS First Search 16x16 3	6714
 TZS Raster Search 16x16	1
@@ -541,6 +590,10 @@ TZS Refinement Search 8x8 6	1
 TZS Refinement Search 64x64 2	1
 END
 Frame 7
+TU luma  32x32	169
+TU chroma  16x16	84.5
+TU luma  16x16	268.562
+TU chroma  8x8	134.281
 PU Inter SMP 64x64	18
 TZS First Search 64x64 3	255
 TZS Raster Search 64x64	0
@@ -548,12 +601,15 @@ TZS Refinement Search 64x64 0	0
 PU Inter SMP 32x64	18
 TZS First Search 64x64 4	12
 PU Inter SMP 64x32	18
+TU luma  8x8	290.078
+TU chroma  4x4	243.578
 PU Inter SMP 32x32	22.75
 TZS First Search 32x32 3	1289
 TZS Raster Search 32x32	0
 TZS Refinement Search 32x32 0	0
 PU Inter SMP 16x32	22.75
 PU Inter SMP 32x16	22.75
+TU luma  4x4	197.078
 PU Inter SMP 16x16	24.375
 TZS First Search 16x16 3	5490
 TZS Raster Search 16x16	0

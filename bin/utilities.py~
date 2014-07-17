@@ -63,7 +63,7 @@ def getAllStats(lines, N):
 		if ('First' in strr) or ('Refinement' in strr):
 			tzsRoundsDict[strr] = [0.0]*(N+1)
 
-		strr = " ".join(strr.split()[1:3])
+		strr = " ".join(strr.split()[0:2])
 		tzsDict[strr] = [0.0]*(N+1)	
 		accTzs[strr] = 0.0
 

@@ -15,6 +15,7 @@ objects/TComTrQuant.d.o: \
  /home/grellert/hm-statistics/build/linux/lib/TLibCommon/../../../../source/Lib/TLibCommon/TComPattern.h \
  /home/grellert/hm-statistics/build/linux/lib/TLibCommon/../../../../source/Lib/TLibCommon/TComRdCostWeightPrediction.h \
  /home/grellert/hm-statistics/build/linux/lib/TLibCommon/../../../../source/Lib/TLibCommon/ContextTables.h \
+ /home/grellert/hm-statistics/build/linux/lib/TLibCommon/../../../../source/Lib/TLibCommon/TComStatistics.h \
  /home/grellert/hm-statistics/build/linux/lib/TLibCommon/../../../../source/Lib/TLibCommon/TComPic.h \
  /home/grellert/hm-statistics/build/linux/lib/TLibCommon/../../../../source/Lib/TLibCommon/TComPicSym.h \
  /home/grellert/hm-statistics/build/linux/lib/TLibCommon/../../../../source/Lib/TLibCommon/TComBitStream.h \
@@ -35,6 +36,7 @@ objects/TComTrQuant.d.o: \
  /home/grellert/hm-statistics/build/linux/lib/TLibCommon/../../../../source/Lib/TLibCommon/TComPattern.h :
  /home/grellert/hm-statistics/build/linux/lib/TLibCommon/../../../../source/Lib/TLibCommon/TComRdCostWeightPrediction.h :
  /home/grellert/hm-statistics/build/linux/lib/TLibCommon/../../../../source/Lib/TLibCommon/ContextTables.h :
+ /home/grellert/hm-statistics/build/linux/lib/TLibCommon/../../../../source/Lib/TLibCommon/TComStatistics.h :
  /home/grellert/hm-statistics/build/linux/lib/TLibCommon/../../../../source/Lib/TLibCommon/TComPic.h :
  /home/grellert/hm-statistics/build/linux/lib/TLibCommon/../../../../source/Lib/TLibCommon/TComPicSym.h :
  /home/grellert/hm-statistics/build/linux/lib/TLibCommon/../../../../source/Lib/TLibCommon/TComBitStream.h :

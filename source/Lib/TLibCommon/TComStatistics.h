@@ -44,7 +44,7 @@ public:
 
         
 	static void setEncTU(TComDataCU*, int w, int h, bool isLuma);
-	static void setCompTU(TComDataCU*, int w, int h, bool isLuma);
+        static void setCompTU(TComDataCU*, string, unsigned int w,unsigned int h, bool isLuma);
 	
         static void setTZStep(int w, int h, int step, bool taken);
         static void addTZStatistics(string name, double n);

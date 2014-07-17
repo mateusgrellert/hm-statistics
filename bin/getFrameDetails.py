@@ -5,7 +5,6 @@ fout = open(argv[1] + '_HM_details.csv','w')
 
 print >> fout, "\t".join(["POC", "ET", "bits"])
 for l in f.readlines():
-    # @type l str
     if '[ET' in l:
 	l = l.split()
 	poc = l[1]
