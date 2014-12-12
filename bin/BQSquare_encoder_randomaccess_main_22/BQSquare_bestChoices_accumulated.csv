@@ -1,0 +1,62 @@
+SKIP	32x32 	19.75 	
+SKIP	64x64 	18.0 	
+SKIP	16x16 	17.8125 	
+Merge SMP	16x16 	7.9375 	
+SKIP	8x8 	7.0625 	
+Merge SMP	8x8 	5.20313 	
+Merge SMP	32x64 	2.0 	
+Inter SMP	64x64 	2.0 	
+Inter SMP	16x16 	1.875 	
+Inter SMP	8x8 	1.82813 	
+Merge SMP	32x32 	1.75 	
+Merge AMP	12x16 	1.171875 	
+Inter SMP	32x32 	1.0 	
+Merge SMP	8x16 	0.90625 	
+Merge AMP	48x64 	0.75 	
+Merge SMP	16x32 	0.75 	
+Inter SMP	4x8 	0.695313 	
+Merge AMP	16x12 	0.609375 	
+Inter AMP	12x16 	0.609375 	
+Merge SMP	4x8 	0.523438 	
+Inter SMP	16x32 	0.5 	
+Inter SMP	16x8 	0.46875 	
+Inter SMP	8x4 	0.460937 	
+Inter AMP	16x12 	0.421875 	
+Inter SMP	8x16 	0.40625 	
+Merge SMP	8x4 	0.398438 	
+Merge AMP	4x16 	0.375 	
+Merge SMP	16x8 	0.34375 	
+Inter SMP	32x16 	0.25 	
+Merge SMP	32x16 	0.25 	
+Merge AMP	16x64 	0.25 	
+Merge AMP	16x4 	0.25 	
+Inter AMP	4x16 	0.21875 	
+Inter AMP	32x24 	0.1875 	
+Merge AMP	24x32 	0.1875 	
+Inter AMP	16x4 	0.09375 	
+Merge AMP	8x32 	0.0625 	
+Merge AMP	32x8 	0.0625 	
+Intra	4x4 	0.046875 	
+Intra	8x8 	0.03125 	
+
+
+
+SKIP 	62.625 	
+Merge SMP 	20.062506 	
+Inter SMP 	9.48438 	
+Merge AMP 	3.71875 	
+Inter AMP 	1.53125 	
+Intra 	0.078125 	
+
+
+
+TU	32x32 	45.75 	
+TU	16x16 	22.1875 	
+TU	8x8 	14.92187 	
+TU	4x4 	14.64063 	
+
+
+
+
+
+

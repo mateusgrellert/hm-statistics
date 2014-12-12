@@ -1,0 +1,65 @@
+Intra	64x64 	9.0 	
+Inter SMP	64x64 	72.0 	
+Inter AMP Merge	64x48 	33.0 	
+Inter AMP Merge	48x64 	31.5 	
+Inter SMP	32x64 	72.0 	
+Inter SMP	64x32 	72.0 	
+Inter AMP Merge	64x16 	11.0 	
+Inter AMP Merge	16x64 	10.5 	
+Inter SMP	32x32 	91.0 	
+Intra	32x32 	5.5 	
+Inter AMP	32x24 	20.25 	
+Inter AMP Merge	32x24 	4.5 	
+Inter AMP Merge	24x32 	4.125 	
+Inter AMP	24x32 	19.125 	
+Inter SMP	16x32 	91.0 	
+Inter SMP	32x16 	91.0 	
+Inter AMP	8x32 	6.375 	
+Inter AMP	32x8 	6.75 	
+Inter AMP Merge	32x8 	1.5 	
+Inter AMP Merge	8x32 	1.375 	
+Inter SMP	16x16 	97.5 	
+Intra	16x16 	3.0 	
+Inter AMP	12x16 	9.28125 	
+Inter AMP Merge	16x12 	7.5 	
+Inter AMP Merge	12x16 	7.125 	
+Inter AMP	16x12 	7.6875 	
+Inter SMP	8x16 	97.5 	
+Inter SMP	16x8 	97.5 	
+Inter AMP	4x16 	3.09375 	
+Inter AMP Merge	16x4 	2.5 	
+Inter AMP	16x4 	2.5625 	
+Inter AMP Merge	4x16 	2.375 	
+Intra	8x8 	1.093755 	
+Inter SMP	8x8 	97.5 	
+Inter SMP	8x4 	97.5 	
+Inter SMP	4x8 	97.5 	
+Intra	4x4 	1.093755 	
+
+
+
+SKIP 	0.0 	
+Merge AMP 	0.0 	
+Merge SMP 	0.0 	
+Inter SMP 	1074.0 	
+Inter AMP 	192.125 	
+Intra 	19.68751 	
+
+
+
+TU luma	32x32 	955.75 	
+TU luma	16x16 	1372.875 	
+TU chroma	16x16 	448.375 	
+TU chroma	8x8 	697.719 	
+TU luma	8x8 	1334.594 	
+TU luma	4x4 	865.711 	
+TU chroma	4x4 	1105.469 	
+
+
+
+First Search 	94115.0 	
+Raster Search 	23.0 	
+Refinement Search 	726.0 	
+
+
+

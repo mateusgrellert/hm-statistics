@@ -10,6 +10,8 @@ ofstream TComStatistics::bestChoicesFile;
 ofstream TComStatistics::TZStatisticsFile;
 int TComStatistics::currentPOC;
 int TComStatistics::nCU;
+Pel* TComStatistics::origLumaPointer;
+
 string TComStatistics::inputPath;
 unsigned TComStatistics::TZSearchRounds;
 bool TComStatistics::startEncoding;
@@ -25,6 +27,7 @@ void TComStatistics::setCompPU(TComDataCU* pu, string mode, unsigned int w, unsi
 
     startEncoding = false;
     nCU=0;
+    
     
     currentPOC = pu->getPic()->getPOC();
 
@@ -42,7 +45,7 @@ void TComStatistics::setEncPU(TComDataCU* pu, unsigned int partIdx){
     if(not(startEncoding)) return;    
     
     int w,h;
-   
+       
     currentPOC = pu->getPic()->getPOC();
     
     PartSize ePartSize = pu->getPartitionSize( partIdx );
